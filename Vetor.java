@@ -18,7 +18,8 @@ public class Vetor {
         return false;
     }
     
-    private void aumentaCapacidade() {
+    // O método voi alterado para public, para que eu possar acessar eme no Teste 
+    public void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
             Object[] elementosNovos = new Object[this.elementos.length * 2];
             for (int i = 0; i < this.elementos.length; i++) {
