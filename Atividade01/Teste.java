@@ -22,7 +22,7 @@ public class Teste {
 
         System.out.println();
         System.out.println("4)");
-        System.out.println(vetor.busca(2));
+        System.out.println(vetor.busca(1));
 
         System.out.println();
         System.out.println("5)");
