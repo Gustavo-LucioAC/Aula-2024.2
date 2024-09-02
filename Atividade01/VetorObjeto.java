@@ -1,9 +1,8 @@
-public class Vetor {
-        
+public class VetorObjeto {
     private Object[] elementos;
     private int tamanho;
     
-    public Vetor(int capacidade) {
+    public VetorObjeto(int capacidade) {
         this.elementos = new Object[capacidade];
         this.tamanho = 0;
     }
@@ -18,7 +17,6 @@ public class Vetor {
         return false;
     }
     
-    // O método voi alterado para public, para que eu possar acessar eme no Teste 
     public void aumentaCapacidade() {
         if (this.tamanho == this.elementos.length) {
             Object[] elementosNovos = new Object[this.elementos.length * 2];
@@ -75,7 +73,7 @@ public class Vetor {
     }
     
     public boolean adiciona(int posicao, Object elemento) {
-        if (!(posicao >= 0 && posicao <= tamanho)) { // Corrigido para permitir adicionar na última posição
+        if (!(posicao >= 0 && posicao <= tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
         }
         this.aumentaCapacidade();
@@ -86,5 +84,29 @@ public class Vetor {
         this.elementos[posicao] = elemento;
         this.tamanho++;
         return true;
+    }
+
+    public String organizaLista(){
+        
+        for (int i = 0; i < this.tamanho-1; i++) {
+            for (int j = i+1; j < this.tamanho; j++) {
+
+                String[] element = this.elementos[i].toString().split(" ");
+                int object = Integer.parseInt(element[1]);
+
+                String[] elementTwo = this.elementos[j].toString().split(" ");
+                int objectTwo = Integer.parseInt(elementTwo[1]);                
+
+                if(object > objectTwo){
+                    
+                    Object temp = this.elementos[i];
+                    this.elementos[i] = this.elementos[j];
+                    this.elementos[j] = temp;
+                    
+                }
+            }
+            
+        }
+        return toString();
     }
 }
