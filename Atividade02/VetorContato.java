@@ -1,6 +1,6 @@
 public class VetorContato {
     
-    private String[] contatos;
+    private Object[] contatos;
     private int tamanho;
     
     public VetorContato(int capacidade) {
@@ -19,7 +19,7 @@ public class VetorContato {
     
     public void aumentaCapacidade() {
         if (this.tamanho == this.contatos.length) {
-            String[] contatosNovos = new String[this.contatos.length * 2];
+            Object[] contatosNovos = new String[this.contatos.length * 2];
             for (int i = 0; i < this.contatos.length; i++) {
                 contatosNovos[i] = this.contatos[i];
             }
@@ -41,7 +41,7 @@ public class VetorContato {
         return -1;
     }
 
-    public String busca(int posicao) {
+    public Object busca(int posicao) {
         if (!(posicao >= 0 && posicao < tamanho)) {
             throw new IllegalArgumentException("Posição inválida");
         }
@@ -87,6 +87,43 @@ public class VetorContato {
         return true;
     }
 
+    public void ordena() {
+        for (int i = 0; i < this.tamanho; i++) {
+            
+            boolean trocaRealizada = false;
+            
+            for (int j = 0; j < this.tamanho + 1; j++) {
+
+                if (this.contatos[j] instanceof Comparable && this.contatos[j] instanceof Comparable) {
+                    
+                    Comparable obj1 = (Comparable) this.contatos[j];
+                    Comparable obj2 = (Comparable) this.contatos[j + 1];
+
+                    if (obj1 == null || obj2 == null){
+                        continue;
+                    }
+                    
+                    if (obj1.compareTo(obj2) > 0) 
+					{
+                        Object temp = this.contatos[j];
+                        this.contatos[j] = this.contatos[j + 1];
+                        this.contatos[j + 1] = temp;
+						trocaRealizada = true;
+                    }
+                }
+				else 
+				{
+                    throw new IllegalArgumentException("Elementos não comparáveis.");
+                }
+            }
+            
+            if (!trocaRealizada) {
+                break;
+            }
+        }
+    }
+    // Métodos que comparam se Contatos for do tipo String
+    /*
     public String buscaNome(String nome){
         for (int i = 0; i < this.tamanho; i++) {
             String[] contatoSplit = this.contatos[i].split("Nome: ");
@@ -110,4 +147,5 @@ public class VetorContato {
         }
         return null;
     }
+    */
 }

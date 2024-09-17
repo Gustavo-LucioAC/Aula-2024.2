@@ -1,4 +1,4 @@
-public class Contato {
+public class Contato implements Comparable<Contato> {
     
     private String nome;
     private String telefone;
@@ -21,5 +21,10 @@ public class Contato {
 
     public String getEmail() {
         return email;
+    }
+
+    @Override
+    public int compareTo(Contato o) {
+        return this.nome.compareToIgnoreCase(o.getNome());
     }
 }

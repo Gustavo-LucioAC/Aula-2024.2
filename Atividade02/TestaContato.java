@@ -47,10 +47,18 @@ public class TestaContato {
 
         System.out.println();
         System.out.println("9)");
+        vetor.ordena();
+        System.out.println(vetor.toString());
+
+
+        /* 
+        System.out.println();
+        System.out.println("9)");
         System.out.println(vetor.buscaNome("Teste05"));
 
         System.out.println();
         System.out.println("10)");
         System.out.println(vetor.buscaEmail("TESTE05@TESTE.COM"));
+        */
     }
 }
