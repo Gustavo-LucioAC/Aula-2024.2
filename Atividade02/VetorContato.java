@@ -92,7 +92,7 @@ public class VetorContato {
             
             boolean trocaRealizada = false;
             
-            for (int j = 0; j < this.tamanho + 1; j++) {
+            for (int j = 0; j < this.tamanho - 1; j++) {
 
                 if (this.contatos[j] instanceof Comparable && this.contatos[j] instanceof Comparable) {
                     
