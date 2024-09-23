@@ -27,4 +27,9 @@ public class Contato implements Comparable<Contato> {
     public int compareTo(Contato o) {
         return this.nome.compareToIgnoreCase(o.getNome());
     }
+    
+    @Override
+    public String toString() {
+        return "Nome: " + nome + ", Telefone: " + telefone + ", Email: " + email;
+    }
 }
